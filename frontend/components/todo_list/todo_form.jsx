@@ -17,7 +17,6 @@ class TodoForm extends React.Component {
     event.preventDefault();
 
     const newId = uniqId();
-    debugger
     this.props.receiveTodo({id: newId,
                       title: this.state.title,
                       body: this.state.body,
