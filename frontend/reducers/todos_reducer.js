@@ -18,8 +18,8 @@ const initialState = {
 
 const todosReducer = (state = initialState, action) => {
   Object.freeze(state);
+  debugger
   switch (action.type) {
-
     case RECEIVE_TODOS:
       const newState = {};
 
@@ -31,8 +31,8 @@ const todosReducer = (state = initialState, action) => {
     case RECEIVE_TODO:
       const todoId = action.todo.id;
       const newObject = {[todoId]: action.todo};
-      // debuggers
-      return merge(state, newObject);
+      const nState = merge(newObject, state);
+      return nState;
 
     default:
         return state;
