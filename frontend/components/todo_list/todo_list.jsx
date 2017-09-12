@@ -10,8 +10,11 @@ const TodoList = ({ todos, receiveTodo, removeTodo}) => {
         {
           todos.map((todo,id) => <TodoListItem key={id + todo.title}
                                             title={todo.title}
-                                            id={id}
-                                            removeTodo={removeTodo}/>)
+                                            id={todo.id}
+                                            body={todo.body}
+                                            done={todo.done}
+                                            removeTodo={removeTodo}
+                                            receiveTodo={receiveTodo}/>)
                                           }
       </ul>
     </div>
