@@ -1,16 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class Root extends React.Component {
-  render() {
-    return(
-      <div>
-        <h1>Todo List</h1>
-      </div>
-    );
-  }
-}
+import configureStore from "./store/store";
+import { receiveTodos, receiveTodo } from "./actions/todo_actions";
+import Root from "./components/root";
+
+import allTodos from "./reducers/selectors";
+
 
 document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(<Root/>, document.getElementById('root'));
+  const store = configureStore();
+  ReactDOM.render(<Root store={store}/>, document.getElementById('content'));
+
+  window.receiveTodos = receiveTodos;
+  window.receiveTodo = receiveTodo;
+  window.store = store;
+
+  window.allTodos = allTodos;
 });
