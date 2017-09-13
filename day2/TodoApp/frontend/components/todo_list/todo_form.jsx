@@ -25,7 +25,10 @@ class TodoForm extends React.Component {
                       done: false
                     }).then(() => {
                       this.setState({ title: '', body: '' });
-                    });
+                      this.props.errors = [];
+                    },
+
+                      );
 
   }
 

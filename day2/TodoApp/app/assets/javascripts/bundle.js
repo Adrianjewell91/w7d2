@@ -24916,7 +24916,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var rootReducer = (0, _redux.combineReducers)({
   todos: _todos_reducer2.default,
-  error: _error_reducer2.default
+  errors: _error_reducer2.default
 });
 
 exports.default = rootReducer;
@@ -28025,7 +28025,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    todos: (0, _selectors2.default)(state)
+    todos: (0, _selectors2.default)(state),
+    errors: state.errors
   };
 };
 
@@ -28282,6 +28283,7 @@ var TodoForm = function (_React$Component) {
         done: false
       }).then(function () {
         _this2.setState({ title: '', body: '' });
+        _this2.props.errors = [];
       });
     }
   }, {

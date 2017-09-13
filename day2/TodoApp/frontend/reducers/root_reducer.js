@@ -4,7 +4,7 @@ import errorReducer from './error_reducer';
 
 const rootReducer = combineReducers({
   todos: todosReducer,
-  error: errorReducer
+  errors: errorReducer
 });
 
 export default rootReducer;

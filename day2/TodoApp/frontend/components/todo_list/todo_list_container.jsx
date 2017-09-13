@@ -5,7 +5,8 @@ import { createTodo, removeTodo, fetchTodos } from "../../actions/todo_actions";
 
 
 const mapStateToProps = state => ({
-  todos: allTodos(state)
+  todos: allTodos(state),
+  errors: state.errors
 });
 
 const mapDispatchToProps = dispatch => ({
