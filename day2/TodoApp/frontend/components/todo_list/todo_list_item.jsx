@@ -19,7 +19,7 @@ class TodoListItem extends React.Component {
   updateTodo(event) {
     // debugger
     event.preventDefault();
-    this.props.receiveTodo({
+    this.props.createTodo({
       id: this.props.id,
       title: this.props.title,
       body: this.props.body,

@@ -17,11 +17,16 @@ class TodoForm extends React.Component {
     event.preventDefault();
 
     const newId = uniqId();
-    this.props.receiveTodo({id: newId,
+    console.log(this.props);
+
+    this.props.createTodo({//id: newId,
                       title: this.state.title,
                       body: this.state.body,
                       done: false
+                    }).then(() => {
+                      this.setState({ title: '', body: '' });
                     });
+
   }
 
   updateInfo(event) {
@@ -35,10 +40,10 @@ class TodoForm extends React.Component {
       <div>
         <form onSubmit={this.handleEvent}>
           <label>Title
-            <input type="text" id="title" onChange={this.updateInfo}></input>
+            <input type="text" id="title" onChange={this.updateInfo} value={this.state.title}></input>
           </label>
           <label>Body
-            <input type="text" id="body" onChange={this.updateInfo}></input>
+            <input type="text" id="body" onChange={this.updateInfo} value={this.state.body}></input>
           </label>
           <button>Add ToDo</button>
         </form>
